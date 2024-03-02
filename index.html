@@ -22,33 +22,29 @@
         }
     </style>
 </head>
-<body>
+<body class="p-4 lg:p-0">
     <header class="container mx-auto mt-10">
         <!-- navbar -->
         <nav class="font-mulish">
             <div class="navbar bg-base-100">
                 <div class="navbar-start">
                   <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden pl-0">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                      <li><a>Item 1</a></li>
-                      <li>
-                        <a>Parent</a>
-                        <ul class="p-2">
-                          <li><a>Submenu 1</a></li>
-                          <li><a>Submenu 2</a></li>
-                        </ul>
-                      </li>
-                      <li><a>Item 3</a></li>
+                        <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-home-2-line"></i></button>
+                        <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-pencil-line"></i></button>
+                        <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-user-add-line"></i></button>
+                        <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-flag-line"></i></button>
+                        <button class="btn rounded-full bg-[#797DFC] text-white text-xl font-bold">Sign In</button>
                     </ul>
                   </div>
                   <a class="btn btn-ghost text-4xl font-extrabold">RetroRave</a>
                 </div>
                 
                 <div class="navbar-end">
-                  <div class="space-x-3">
+                  <div class="space-x-3 hidden lg:flex">
                     <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-home-2-line"></i></button>
                     <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-pencil-line"></i></button>
                     <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-user-add-line"></i></button>
@@ -58,6 +54,43 @@
                 </div>
               </div>
         </nav>
+
+        <!-- banner section -->
+        <div class="bg-[#12132D] rounded-[32px] lg:w-[1170px] lg:h-[80vh] mx-auto mt-7 lg:mt-12 bg-[w-full bg-[url(./images/bgbanner.png)]  bg-no-repeat bg-cover overflow-hidden">
+            <div class="flex flex-col lg:flex-row lg:justify-center lg:items-center  my-5 lg:my-20 mx-5 lg:mx-24 gap-7 lg:gap-28 overflow-hidden">
+            <!-- banner left -->
+            <div class="space-y-4 lg:space-y-8 lg:flex-1">
+                <h2 class="text-white text-4xl lg:text-6xl font-extrabold leading-10">Welcome to the <span class="text-[#797DFC]">ReTroRave</span> Forum</h2>
+                <p class="text-[#FFFFFFCC] mb-8 w-2/3 text-xl font-medium">Unlock your potential, embrace change, and seize every opportunity.</p>
+                <div class="bg-white rounded-full flex items-center justify-between  lg:w-[400px] lg:h-[56px] px-3 lg:px-5 py-3 lg:py-4">
+                    <input class="bg-white  text-[#03071280]" type="search" name="" id="search-box" placeholder="Search here anything">
+                    <button id="search-btn" class="btn bg-[#797DFC] rounded-full text-white h-full">Search</button>
+                </div>
+            </div>
+            <!-- banner right -->
+            <div class="bg-white rounded-[32px] p-6 lg:p-12 space-y-6">
+                <div class="flex justify-between items-center gap-8 w-full text-[#12132DCC]">
+                    <h5 class="font-medium lg:text-2xl">Registered Users</h5>
+                    <p class="font-medium lg:text-2xl">01</p>
+                </div>
+                <div class="flex justify-between items-center gap-8 w-full text-[#12132DCC]">
+                    <h5 class="font-medium lg:text-2xl">Forum</h5>
+                    <p class="font-medium lg:text-2xl">01</p>
+                </div>
+                <div class="flex justify-between items-center gap-8 w-full text-[#12132DCC]">
+                    <h5 class="font-medium lg:text-2xl">Topics</h5>
+                    <p class="font-medium lg:text-2xl">01</p>
+                </div>
+                <div class="flex justify-between items-center gap-8 w-full text-[#12132DCC]">
+                    <h5 class="font-medium lg:text-2xl">Replies</h5>
+                    <p class="font-medium lg:text-2xl">01</p>
+                </div>
+                
+            </div>
+            </div>
+
+            
+        </div>
     </header>
     <main>
 
