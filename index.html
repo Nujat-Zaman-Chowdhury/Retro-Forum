@@ -13,7 +13,23 @@
     <!-- remix-icon link -->
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+                'gradient':'linear-gradient(90deg, #797DFC, #797DFC00)',
+              }
+            }
+          }
+        }
+      </script>
     <style>
+        .custom-footer 
+        {
+        background-image: linear-gradient(180deg, rgba(18, 19, 45, 0.05) 0%, rgba(18, 19, 45, 0.00) 100%);
+        }
         .font-mulish{
             font-family: "Mulish", sans-serif;
         }
@@ -56,11 +72,11 @@
         </nav>
 
         <!-- banner section -->
-        <div class="bg-[#12132D] rounded-[32px] lg:w-[1170px] lg:h-[80vh] mx-auto mt-7 lg:mt-12 bg-[w-full bg-[url(./images/bgbanner.png)]  bg-no-repeat bg-cover overflow-hidden">
+        <div class="bg-[#12132D] rounded-[32px] lg:w-[1170px] lg:h-[75vh] mx-auto mt-7 lg:mt-12 bg-[url(./images/bgbanner.png)]  bg-no-repeat bg-cover overflow-hidden">
             <div class="flex flex-col lg:flex-row lg:justify-center lg:items-center  my-5 lg:my-20 mx-5 lg:mx-24 gap-7 lg:gap-28 overflow-hidden">
             <!-- banner left -->
             <div class="space-y-4 lg:space-y-8 lg:flex-1">
-                <h2 class="text-white text-4xl lg:text-6xl font-extrabold leading-10">Welcome to the <span class="text-[#797DFC]">ReTroRave</span> Forum</h2>
+                <h2 class="text-white text-4xl lg:text-6xl font-extrabold leading-10">Welcome to the <span class="text-gradient">ReTroRave</span> Forum</h2>
                 <p class="text-[#FFFFFFCC] mb-8 w-2/3 text-xl font-medium">Unlock your potential, embrace change, and seize every opportunity.</p>
                 <div class="bg-white rounded-full flex items-center justify-between  lg:w-[400px] lg:h-[56px] px-3 lg:px-5 py-3 lg:py-4">
                     <input class="bg-white  text-[#03071280]" type="search" name="" id="search-box" placeholder="Search here anything">
@@ -92,11 +108,63 @@
             
         </div>
     </header>
-    <main>
+    <main class="my-20 container mx-auto">
+        <!-- let's discuss section -->
+        <section class="py-5 lg:py-10">
+            <div class="text-center space-y-6">
+                <h2 class="font-mulish text-4xl font-extrabold">Let’s Discuss</h2>
+                <p class="lg:w-[691px] mx-auto text-[#12132D99] text-lg">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+            </div>
 
+            <!-- bottom part -->
+            <div class="flex items-center">
+                <!-- left card container -->
+                <div id="card-container flex-1">
+                    
+                </div>
+            </div>
+
+
+            <!-- join our forum -->
+            <div class="bg-[#12132D] rounded-[32px] lg:w-[1170px] lg:h-[65vh] mx-auto mt-7 lg:mt-12 p-5">
+            <div class="flex flex-col lg:flex-row lg:justify-center lg:items-center h-full lg:mx-24 gap-7 lg:gap-20 overflow-hidden">
+            <!--  left -->
+            <div class="space-y-4 lg:space-y-8 lg:flex-1">
+                <h2 class="text-white text-4xl lg:text-4xl font-extrabold leading-10">Join Our Forum</h2>
+                <p class="text-[#FFFFFFCC] mb-8 w-full text-xl font-medium">Experience the ease of running unit tests and instantly viewing results within the application itself</p>
+               <button id="search-btn" class="btn bg-[#797DFC] rounded-full text-white h-full border-0">Registered Now</button>
+            </div>
+            <!--  right -->
+            <div class="">
+                <img src="./images/joinforum.png" alt="">
+            </div>
+        </div>
+        </div>
+        </section>
+
+        <!-- latest post section -->
+        <section class="py-5 lg:py-10">
+            <div class="text-center space-y-6 font-mulish">
+                <h2 class="text-4xl font-extrabold">Latest Posts</h2>
+                <p class="lg:w-[691px] mx-auto text-[#12132D99] text-lg">Celebrate seamless unit testing with in-app execution and immediate result visualization through integrated testing features.</p>
+            </div>
+        </section>
     </main>
-    <footer>
 
+    <!-- footer -->
+    <footer class="mt-5 lg:mt-10 custom-footer py-20">
+        <div class="text-center space-y-7 container mx-auto font-mulish">
+           <h4 class="text-4xl font-extrabold">RetroRave</h4> 
+           <p class="lg:w-[691px] mx-auto text-[#12132D99] text-base">Thank you for visiting our website! Stay connected with us on social media for the latest updates and promotions.</p>
+           <div class="space-x-4 flex justify-center items-center">
+            <i class="ri-twitter-fill"></i>
+            <i class="ri-facebook-fill"></i>
+            <i class="ri-instagram-line"></i>
+            <i class="ri-github-fill"></i>
+           </div>
+           <hr class="w-[1170px] mx-auto">
+           <p>2024, All Rights Reserved.</p>
+        </div>
     </footer>
 
 
