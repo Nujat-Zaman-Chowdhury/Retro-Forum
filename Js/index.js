@@ -5,28 +5,14 @@ const latestPostContainer = document.getElementById('latest-post-container');
 
 
 //handle loading spinner
-const handleLoadingSpinner= (loadingSpinner)=>{
-    setTimeout(() => {
-        loadingSpinner.classList.add('hidden')
-    }, 2000);
-}
-
 
 let count = 1;
 const loadPosts = async(categoryName)=>{
     
-    const loadingSpinner = document.getElementById('loading-spinner');
-    loadingSpinner.classList.remove('hidden');
     const res =await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
     const data =await res.json();
     discussCardContainer.innerHTML = "";
-    counter.innerText = 0;
-    
     data.posts.forEach((post)=>{
-        setTimeout(()=>{
-            handleLoadingSpinner(loadingSpinner);
-        },2000)
-        // loadingSpinner.classList.add('hidden');
         
         let activeStatusGreen = `<div class="bg-green-400 rounded-full w-[14px] h-[14px] mx-auto" ></div>`
         let activeStatusRed = `<div class="bg-red-400 rounded-full w-[14px] h-[14px] mx-auto" ></div>`
@@ -80,11 +66,7 @@ const loadPosts = async(categoryName)=>{
                   
         `
 
-        discussCardContainer.appendChild(div)
-        markAsReadContainer.innerHTML = '';
-        
-
-        
+        discussCardContainer.appendChild(div);
     })
     
     
@@ -93,8 +75,6 @@ const loadPosts = async(categoryName)=>{
 const add= (title,postView)=>{
     
     const markAsButton = document.querySelector('#mark-as-btn');
-    // console.log(markAsButton);
-    // console.log(postView);
     const markAsReadContainer = document.getElementById('mark-as-read-container')
     const div = document.createElement('div');
     div.className = "bg-white shadow-sm rounded-2xl lg:flex justify-between items-center w-full p-4"
@@ -107,8 +87,7 @@ const add= (title,postView)=>{
     </div>
 
     `
-    // console.log(div);
-    
+
     markAsReadContainer.appendChild(div)
     const counter = document.getElementById('counter');
     counter.innerText = count;
@@ -119,9 +98,8 @@ const add= (title,postView)=>{
 
 
 //handle search button
-const handleSearch = async()=>{
-    
-    
+const handleSearch = async(isClicked)=>{
+    console.log(isClicked);
     const searchBoxValue = document.getElementById('search-box').value;
     if(searchBoxValue){
         loadPosts(searchBoxValue);
@@ -129,6 +107,7 @@ const handleSearch = async()=>{
     
 
 }
+
 
 
 //handle latest post
