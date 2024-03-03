@@ -91,7 +91,7 @@
                 <p class="text-[#FFFFFFCC] mb-8 lg:w-2/3 text-xl font-medium">Unlock your potential, embrace change, and seize every opportunity.</p>
                 <div class="bg-white rounded-md lg:rounded-full flex flex-col lg:flex-row items-center lg:justify-between w-full h-full lg:w-[400px] lg:h-[56px] space-y-2 lg:space-y-0 px-3 lg:px-5 py-3 lg:py-4">
                     <input class="bg-white border-0 hover:focus:outline-none  text-[#03071280]" type="search" name="" id="search-box" placeholder="Search here anything">
-                    <button id="search-btn" class="btn bg-[#797DFC] rounded-full text-white h-full">Search</button>
+                    <button onclick="handleSearch()" id="search-btn" class="btn bg-[#797DFC] rounded-full text-white h-full">Search</button>
                 </div>
             </div>
             <!-- banner right -->
@@ -120,6 +120,10 @@
         </div>
     </header>
     <main class="my-20 container mx-auto p-4 lg:p-0">
+        <!-- loading spinner section -->
+        <div id="loading-spinner" class="text-center hidden">
+          <span class="loading loading-spinner loading-lg"></span>
+        </div>
         <!-- let's discuss section -->
         <section class="py-5 lg:py-10">
             <div class="text-center space-y-6">
@@ -132,41 +136,7 @@
               <!-- left side -->
                 <div id="discuss-card-container">
                   <!-- card container -->
-                  <div class="space-y-4">
-                    <!-- card -->
-                    <div class="bg-[#797DFC1A] p-10 rounded-xl flex flex-col lg:flex-row gap-6">
-                      <div class="w-[50px] lg:w-[72px] h-[50px] lg:h-[72px] rounded-2xl shadow-sm bg-white relative">
-                          <img src="./images/status-green.png" alt="" class="absolute -right-2 -top-1">
-                      </div>
-                      <div class="flex-1">
-                          <div class="font-inter text-[#12132DCC] font-medium flex flex-col lg:flex-row lg:items-center gap-5 mb-3">
-                            <h4># Music</h4>
-                            <h4>Author : Awlad Hossain</h4>
-                          </div>
-                          <div class="font-mulish text-[#12132D] text-xl font-semibold mb-4">
-                            <h3>10 Kids Unaware of Their Halloween Costume</h3>
-                          </div>
-                          <div class="font-inter text-[#12132D99] mb-5">
-                            <p>It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
-                          </div>
-                          <div class="my-5">
-                            <hr class="border-dashed border-[#12132D40]">
-                          </div>
-                          <div class="flex gap-4 lg:gap-0 flex-col lg:flex-row justify-start lg:justify-between items-start lg:items-center">
-                            <div class="text-[#12132D99] font-inter flex flex-col lg:flex-row items-start lg:items-center gap-5">
-                              <div class="flex gap-3 items-center"><i class="ri-chat-2-line text-xl"></i> <span>560</span></div>
-                              <div class="flex gap-3 items-center"><i class="ri-eye-line text-xl"></i> <span>1,568</span></div>
-                              <div class="flex gap-3 items-center"><i class="ri-time-line text-xl"></i> <span>5 min</span></div>
-                            </div>
-                            <div class="">
-                              <div class="w-[28px] h-[28px] rounded-full bg-[#10B981] p-4 flex justify-center items-center mx-auto"><i class="ri-mail-open-line text-white font-bold"></i></div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                    
-                    <div></div>
-                  </div>
+                  
                 </div>
                 <!-- right side -->
                 <div id="title-container" class=" font-mulish">
@@ -174,26 +144,11 @@
                     <div class="card-body w-full">
                       <div class="flex justify-between items-center">
                         <div><h4 class="text-[#12132D] text-xl font-semibold">Title</h4></div>
-                        <div class="flex items-center gap-2"><i class="ri-check-double-line text-[#3DCE09] text-xl"></i> <p class="text-[#12132D99]">Mark as read (<span>4</span>)</p></div>
+                        <div class="flex items-center gap-2"><i class="ri-check-double-line text-[#3DCE09] text-xl"></i> <p class="text-[#12132D99]">Mark as read (<span id="counter">0</span>)</p></div>
                       </div>
 
-                      <div class="lg:grid lg:grid-rows-4 gap-4 w-full h-full mt-3 space-y-3 lg:space-y-0">
-                        <div class="bg-white shadow-sm rounded-2xl lg:flex justify-between items-center w-full p-4">
-                          <div class="w-[212px]"><h5 class="text-[#12132D] font-semibold">10 Kids Unaware of Their Halloween Costume</h5></div>
-                          <div class="flex items-center gap-1"><img src="./images/tabler-icon-eye.jpg" alt=""> <p class="text-[#12132D99]">1,568</p></div>
-                        </div>
-                        <div class="bg-white shadow-sm rounded-2xl lg:flex justify-between items-center p-4">
-                          <div class="w-[212px]"><h5 class="text-[#12132D] font-semibold">10 Kids Unaware of Their Halloween Costume</h5></div>
-                          <div class="flex items-center gap-1"><img src="./images/tabler-icon-eye.jpg" alt=""> <p class="text-[#12132D99]">1,568</p></div>
-                        </div>
-                        <div class="bg-white shadow-sm rounded-2xl lg:flex justify-between items-center p-4">
-                          <div class="w-[212px]"><h5 class="text-[#12132D] font-semibold">10 Kids Unaware of Their Halloween Costume</h5></div>
-                          <div class="flex items-center gap-1"><img src="./images/tabler-icon-eye.jpg" alt=""> <p class="text-[#12132D99]">1,568</p></div>
-                        </div>
-                        <div class="bg-white shadow-sm rounded-2xl lg:flex justify-between items-center p-4">
-                          <div class="w-[212px]"><h5 class="text-[#12132D] font-semibold">10 Kids Unaware of Their Halloween Costume</h5></div>
-                          <div class="flex items-center gap-1"><img src="./images/tabler-icon-eye.jpg" alt=""> <p class="text-[#12132D99]">1,568</p></div>
-                        </div>
+                      <div id="mark-as-read-container" class="lg:grid lg:grid-rows-4 gap-4 w-full h-full mt-3 space-y-3 lg:space-y-0">
+                        
                         
                       </div>
                     </div>
