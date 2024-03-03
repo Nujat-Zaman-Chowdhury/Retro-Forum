@@ -3,6 +3,7 @@ const markAsReadContainer = document.getElementById('mark-as-read-container');
 const counter = document.getElementById('counter');
 const latestPostContainer = document.getElementById('latest-post-container');
 const loadingSpinner = document.getElementById('loading-spinner');
+const dis = document.getElementById('discuss');
 let count = 1;
 
 
@@ -90,7 +91,7 @@ setTimeout(()=> {
 
 
     const loadPosts = async(categoryName)=>{
-    
+  
     const res =await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
     const data =await res.json();
     discussCardContainer.innerHTML = "";
@@ -180,18 +181,13 @@ const add= (title,postView)=>{
 
 
 //handle search button
-const handleSearch = async()=>{
-   
+const handleSearch = ()=>{
     const searchBoxValue = document.getElementById('search-box').value;
     if(searchBoxValue){
         handleLoadingSpinner(true)
         loadPosts(searchBoxValue);
         spinnerFor2Sec();
-    }
-    else{
-        handleLoadingSpinner(false)
-    }
-
+    } 
 }
 
 
@@ -251,8 +247,6 @@ const loadLatestPosts = async()=>{
 
 loadAllPosts();
 
-// handleSearch();
-
-loadPosts("comedy");
+loadPosts("");
 
 loadLatestPosts();
