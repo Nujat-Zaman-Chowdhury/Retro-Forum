@@ -2,18 +2,34 @@ const discussCardContainer = document.getElementById('discuss-card-container');
 const markAsReadContainer = document.getElementById('mark-as-read-container');
 const counter = document.getElementById('counter');
 const latestPostContainer = document.getElementById('latest-post-container');
+const loadingSpinner = document.getElementById('loading-spinner');
 
 
 //handle loading spinner
+const handleLoadingSpinner = (isLoading)=>{
+     if(isLoading){
+       
+        loadingSpinner.classList.remove('hidden');
+        
+    }
+    else{
+        loadingSpinner.classList.add('hidden');
+    }
+}
 
+const spinnerFor2Sec =()=>{
+setTimeout(()=> {
+    handleLoadingSpinner(false);
+}, 2000);
+}
 let count = 1;
-const loadPosts = async(categoryName)=>{
+    const loadPosts = async(categoryName)=>{
     
     const res =await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
     const data =await res.json();
     discussCardContainer.innerHTML = "";
+    
     data.posts.forEach((post)=>{
-        
         let activeStatusGreen = `<div class="bg-green-400 rounded-full w-[14px] h-[14px] mx-auto" ></div>`
         let activeStatusRed = `<div class="bg-red-400 rounded-full w-[14px] h-[14px] mx-auto" ></div>`
         if(post.isActive){
@@ -98,13 +114,17 @@ const add= (title,postView)=>{
 
 
 //handle search button
-const handleSearch = async(isClicked)=>{
-    console.log(isClicked);
+const handleSearch = async()=>{
+   
     const searchBoxValue = document.getElementById('search-box').value;
     if(searchBoxValue){
+        handleLoadingSpinner(true)
         loadPosts(searchBoxValue);
+        spinnerFor2Sec();
     }
-    
+    else{
+        handleLoadingSpinner(false)
+    }
 
 }
 
@@ -112,9 +132,12 @@ const handleSearch = async(isClicked)=>{
 
 //handle latest post
 const loadLatestPosts = async()=>{
+
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
     const data = await res.json();
+    
     const allPosts = data;
+    
     allPosts.forEach((post)=>{
         const div = document.createElement('div');
         let authorDesignation = '';
@@ -158,6 +181,9 @@ const loadLatestPosts = async()=>{
         latestPostContainer.appendChild(div);
     })
 }
+
+
+
 
 handleSearch();
 
