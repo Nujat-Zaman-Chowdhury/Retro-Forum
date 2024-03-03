@@ -1,6 +1,7 @@
 const discussCardContainer = document.getElementById('discuss-card-container');
 const markAsReadContainer = document.getElementById('mark-as-read-container');
 const counter = document.getElementById('counter');
+const latestPostContainer = document.getElementById('latest-post-container');
 
 
 //handle loading spinner
@@ -67,7 +68,7 @@ const loadPosts = async(categoryName)=>{
                               <div class="flex gap-3 items-center"><i class="ri-time-line text-xl"></i> <span>${post.posted_time} min</span></div>
                             </div>
                             <div class="">
-                              <button id="mark-as-btn" onclick="add('${post.title}?', '${post.view_count}')" class="w-[28px] h-[28px] rounded-full bg-[#10B981] p-4 flex justify-center items-center mx-auto"><i class="ri-mail-open-line text-white font-bold"></i></button>
+                              <button id="mark-as-btn" onclick="add('${post.title.replace(/'/g,'')}', '${post.view_count}')" class="w-[28px] h-[28px] rounded-full bg-[#10B981] p-4 flex justify-center items-center mx-auto"><i class="ri-mail-open-line text-white font-bold"></i></button>
                             </div>
                           </div>
                       </div>
@@ -130,6 +131,57 @@ const handleSearch = async()=>{
 }
 
 
+//handle latest post
+const loadLatestPosts = async()=>{
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+    const data = await res.json();
+    const allPosts = data;
+    allPosts.forEach((post)=>{
+        const div = document.createElement('div');
+        let authorDesignation = '';
+        
+        if(post.author.designation){
+            authorDesignation = post.author.designation;
+        }
+        else{
+            authorDesignation = "Unknown";
+           
+        }
+        let publishedDate = '';
+        if(post.author.posted_date){
+            publishedDate = post.author.posted_date
+        }
+        else{
+            publishedDate="No published date";
+        }
+
+        div.className = "card lg:w-96 bg-base-100 shadow-xl";
+        div.innerHTML = `
+        <figure class="px-10 pt-10">
+                      <img src="${post.cover_image}" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body space-y-2">
+                      <div class="flex items-center gap-4">
+                        <img src="./images/calender-icon.jpg" alt="">
+                        <p>${publishedDate}</p>
+                      </div>
+                      <h4 class="text-[#12132D] font-bold">${post.title}</h4>
+                      <p class="text-[#12132D99]">${post.description}</p>
+                      <div class="flex items-center gap-4">
+                        <img class="w-[44px] h-[44px] rounded-full object-cover" src="${post.profile_image}" alt="">
+                        <div>
+                            <h5 class="text-[#12132D] font-semibold">${post.author.name}</h5>
+                            <p class="#12132D99">${authorDesignation}</p>
+                        </div>
+                      </div>
+                    </div>
+        `
+        latestPostContainer.appendChild(div);
+    })
+}
+
 handleSearch();
 
 loadPosts("comedy");
+
+loadLatestPosts();
