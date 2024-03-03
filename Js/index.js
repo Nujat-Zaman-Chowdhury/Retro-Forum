@@ -4,6 +4,7 @@ const counter = document.getElementById('counter');
 const latestPostContainer = document.getElementById('latest-post-container');
 const loadingSpinner = document.getElementById('loading-spinner');
 const dis = document.getElementById('discuss');
+const titleContainer = document.getElementById('title-container')
 let count = 1;
 
 
@@ -84,14 +85,12 @@ setTimeout(()=> {
 
                   
         `
-
         discussCardContainer.appendChild(div);
     })
  }
 
 
-    const loadPosts = async(categoryName)=>{
-  
+    const loadPosts = async(categoryName)=>{   
     const res =await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
     const data =await res.json();
     discussCardContainer.innerHTML = "";
@@ -184,10 +183,13 @@ const add= (title,postView)=>{
 const handleSearch = ()=>{
     const searchBoxValue = document.getElementById('search-box').value;
     if(searchBoxValue){
-        handleLoadingSpinner(true)
+        handleLoadingSpinner(true);
         loadPosts(searchBoxValue);
         spinnerFor2Sec();
     } 
+    else{
+      
+    }
 }
 
 
