@@ -1,4 +1,6 @@
 const discussCardContainer = document.getElementById('discuss-card-container');
+const markAsReadContainer = document.getElementById('mark-as-read-container');
+const counter = document.getElementById('counter');
 
 
 //handle loading spinner
@@ -10,15 +12,19 @@ const handleLoadingSpinner= (loadingSpinner)=>{
 
 
 let count = 1;
-const loadPosts = async()=>{
+const loadPosts = async(categoryName)=>{
+    
     const loadingSpinner = document.getElementById('loading-spinner');
     loadingSpinner.classList.remove('hidden');
-    const res =await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+    const res =await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
     const data =await res.json();
-    setTimeout(()=>{
-        handleLoadingSpinner(loadingSpinner);
-    },2000)
+    discussCardContainer.innerHTML = "";
+    counter.innerText = 0;
+    
     data.posts.forEach((post)=>{
+        setTimeout(()=>{
+            handleLoadingSpinner(loadingSpinner);
+        },2000)
         // loadingSpinner.classList.add('hidden');
         
         let activeStatusGreen = `<div class="bg-green-400 rounded-full w-[14px] h-[14px] mx-auto" ></div>`
@@ -56,12 +62,12 @@ const loadPosts = async()=>{
                           </div>
                           <div class="flex gap-4 lg:gap-0 flex-col lg:flex-row justify-start lg:justify-between items-start lg:items-center">
                             <div class="text-[#12132D99] font-inter flex flex-col lg:flex-row items-start lg:items-center gap-5">
-                              <div class="flex gap-3 items-center"><i class="ri-chat-2-line text-xl"></i> <span>${post.comment_count}</span></div>
+                              <div class="flex gap-3 items-center"><i class="ri-chat-2-line text-xl"></i> <span>${post.comment_count}?</span></div>
                               <div class="flex gap-3 items-center"><i class="ri-eye-line text-xl"></i> <span>${post.view_count}</span></div>
                               <div class="flex gap-3 items-center"><i class="ri-time-line text-xl"></i> <span>${post.posted_time} min</span></div>
                             </div>
                             <div class="">
-                              <button id="mark-as-btn" onclick="add('${post.title}', '${post.view_count}')" class="w-[28px] h-[28px] rounded-full bg-[#10B981] p-4 flex justify-center items-center mx-auto"><i class="ri-mail-open-line text-white font-bold"></i></button>
+                              <button id="mark-as-btn" onclick="add('${post.title}?', '${post.view_count}')" class="w-[28px] h-[28px] rounded-full bg-[#10B981] p-4 flex justify-center items-center mx-auto"><i class="ri-mail-open-line text-white font-bold"></i></button>
                             </div>
                           </div>
                       </div>
@@ -74,21 +80,20 @@ const loadPosts = async()=>{
         `
 
         discussCardContainer.appendChild(div)
+        markAsReadContainer.innerHTML = '';
+        
+
         
     })
     
     
 }
-
-
-
-
 //handle title and add read lists
 const add= (title,postView)=>{
     
     const markAsButton = document.querySelector('#mark-as-btn');
-    console.log(markAsButton);
-    console.log(postView);
+    // console.log(markAsButton);
+    // console.log(postView);
     const markAsReadContainer = document.getElementById('mark-as-read-container')
     const div = document.createElement('div');
     div.className = "bg-white shadow-sm rounded-2xl lg:flex justify-between items-center w-full p-4"
@@ -101,25 +106,30 @@ const add= (title,postView)=>{
     </div>
 
     `
-    console.log(div);
+    // console.log(div);
     
     markAsReadContainer.appendChild(div)
     const counter = document.getElementById('counter');
     counter.innerText = count;
     count++;
+   
 
 }
 
 
 //handle search button
-const handleSearch = ()=>{
-    // const inputFieldValue = document.getElementById('search-box').value;
+const handleSearch = async()=>{
     
     
+    const searchBoxValue = document.getElementById('search-box').value;
+    if(searchBoxValue){
+        loadPosts(searchBoxValue);
+    }
+    
+
 }
 
 
+handleSearch();
 
-
-
-loadPosts();
+loadPosts("comedy");
