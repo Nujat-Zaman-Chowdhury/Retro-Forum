@@ -49,13 +49,13 @@
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden pl-0">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 space-y-2">
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40 items-center space-y-2">
                       
-                        <button class="rounded-full h-[56px] w-[90%] mx-auto bg-[#12132D08]"><i class="ri-home-2-line"></i></button>
-                        <button class="rounded-full h-[56px] w-[90%] mx-auto bg-[#12132D08]"><i class="ri-pencil-line"></i></button>
-                        <button class="rounded-full h-[56px] w-[90%] mx-auto bg-[#12132D08]"><i class="ri-user-add-line"></i></button>
-                        <button class="rounded-full h-[56px]  w-[90%] mx-auto bg-[#12132D08]"><i class="ri-flag-line"></i></button>
-                        <button class="btn rounded-full w-[90%] mx-auto bg-[#797DFC] text-white text-xl font-bold">Sign In</button>
+                        <button class="rounded-full border border-gray-200 hover:bg-slate-100 h-[56px]  w-[56px] bg-[#12132D08]"><i class="ri-home-2-line"></i></button>
+                        <button class="rounded-full border border-gray-200 hover:bg-slate-100 h-[56px]  w-[56px] bg-[#12132D08]"><i class="ri-pencil-line"></i></button>
+                        <button class="rounded-full border border-gray-200 hover:bg-slate-100 h-[56px]  w-[56px] bg-[#12132D08]"><i class="ri-user-add-line"></i></button>
+                        <button class="rounded-full border border-gray-200 hover:bg-slate-100 h-[56px]  w-[56px] bg-[#12132D08]"><i class="ri-flag-line"></i></button>
+                        <button class="btn px-7 rounded-full bg-[#797DFC] text-white text-sm  font-bold w-[80%] h-[56px]">Sign In</button>
                     </ul>
                   </div>
                   <a class="btn btn-ghost text-4xl font-extrabold">RetroRave</a>
@@ -65,18 +65,18 @@
                   
                   <div class="space-x-3 hidden lg:flex">
                     <div class="tooltip" data-tip="home">
-                      <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-home-2-line"></i></button>
+                      <button class="rounded-full border border-gray-200 hover:bg-slate-100 h-[56px]  w-[56px] bg-[#12132D08]"><i class="ri-home-2-line"></i></button>
                     </div>
                     <div class="tooltip" data-tip="edit">
-                      <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-pencil-line"></i></button>
+                      <button class="rounded-full border border-gray-200 h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-pencil-line"></i></button>
                     </div>
                     <div class="tooltip" data-tip="add-user">
-                      <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-user-add-line"></i></button>
+                      <button class="rounded-full border border-gray-200 h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-user-add-line"></i></button>
                     </div>
                     <div class="tooltip" data-tip="flag">
-                      <button class="rounded-full h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-flag-line"></i></button>
+                      <button class="rounded-full border border-gray-200 h-[56px] w-[56px] bg-[#12132D08]"><i class="ri-flag-line"></i></button>
                     </div>
-                    <button class="btn rounded-full bg-[#797DFC] text-white text-xl font-bold">Sign In</button>
+                    <button class="btn px-7 rounded-full bg-[#797DFC] text-white text-xl font-bold">Sign In</button>
                   </div>
                 </div>
               </div>
@@ -89,9 +89,9 @@
             <div class="space-y-4 lg:space-y-8 lg:flex-1">
                 <h2 class="text-white text-3xl lg:text-6xl font-extrabold leading-10">Welcome to the <span class="bg-gradient-to-r from-indigo-300 to-indigo-800 bg-clip-text text-transparent">ReTroRave</span> Forum</h2>
                 <p class="text-[#FFFFFFCC] mb-8 lg:w-2/3 text-xl font-medium">Unlock your potential, embrace change, and seize every opportunity.</p>
-                <div class="bg-white rounded-md lg:rounded-full flex flex-col lg:flex-row items-center lg:justify-between w-full h-full lg:w-[400px] lg:h-[56px] space-y-2 lg:space-y-0 px-3 lg:px-5 py-3 lg:py-4">
-                    <input class="bg-white border-none p-2 hover:focus:outline-none  text-[#03071280]" type="search" name="" id="search-box" placeholder="Search here anything">
-                    <button onclick="handleSearch()" id="search-btn" class="btn border-none bg-[#797DFC] rounded-full text-white h-full hover:focus:outline-none">Search</button>
+                <div class="bg-white rounded-[50px] flex flex-row items-center lg:gap-6 w-full lg:w-[400px] lg:h-[56px] p-2 lg:p-5">
+                    <input class="bg-white border-none p-5 hover:focus:outline-none text-[#03071280] rounded-full  w-full h-full" type="search" name="" id="search-box" placeholder="Search here anything">
+                    <button onclick="handleSearch()" id="search-btn" class="p-2 lg:py-5 lg:px-7 flex justify-center items-center border-none bg-[#797DFC] rounded-[46px] text-white h-full hover:focus:outline-none">Search</button>
                 </div>
             </div>
             <!-- banner right -->
