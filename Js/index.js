@@ -3,7 +3,7 @@ const markAsReadContainer = document.getElementById("mark-as-read-container");
 const counter = document.getElementById("counter");
 const latestPostContainer = document.getElementById("latest-post-container");
 const loadingSpinner = document.getElementById("loading-spinner");
-const dis = document.getElementById("discuss");
+const discussDiv = document.getElementById("discuss");
 const titleContainer = document.getElementById("title-container");
 const discussSection = document.getElementById("discuss-section");
 let count = 1;
@@ -196,10 +196,10 @@ const handleSearch = () => {
 const handleLoadingSpinner = (isLoading) => {
   if (isLoading) {
     loadingSpinner.classList.remove("hidden");
-    discussSection.classList.add("hidden");
+    discussDiv.classList.add("hidden");
   } else {
     loadingSpinner.classList.add("hidden");
-    discussSection.classList.remove("hidden");
+    discussDiv.classList.remove("hidden");
   }
 };
 
